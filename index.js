@@ -1,9 +1,9 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import mongodb, { MongoClient } from 'mongodb';
+import { STR_CONNECT } from './config';
 
 const PORT = 8000;
-const STR_CONNECT = 'mongodb+srv://paulwebdew:mihuta88@reactdb.cbtnuer.mongodb.net/';
 
 const client = new MongoClient(STR_CONNECT);
 
