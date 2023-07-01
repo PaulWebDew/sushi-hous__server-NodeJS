@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import mongodb, { MongoClient } from 'mongodb';
-import { STR_CONNECT } from './config';
+import { STR_CONNECT } from './config.js';
 
 const PORT = 8000;
 
@@ -19,6 +19,10 @@ app.use(json());
     const category = await collCategory.find().toArray();
     const collGoods = db.collection('goods');
     const goods = await collGoods.find().toArray();
+    // goods.map((item, ind) => {
+    //   const newPrice = Number(item.price.replace(/\s/g, '').slice(0, -1));
+    //   collGoods.updateOne({ title: item.title }, { $set: { price: newPrice } });
+    // });
     // await collGoods.updateMany({ category: '4' }, { $set: { category: 4 } });
     // ========================================================================
     app.get('/sushihous/category', (req, res) => {
